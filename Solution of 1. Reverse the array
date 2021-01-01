@@ -1,0 +1,77 @@
+1st Approach - take a loop to iterate from the end to the start and print it so by this your array will be reversed easily with O(n) Time Complexity with O(1) Space Complexity
+ code - 
+#include<iostream>
+using namespace std;
+
+int main()
+{
+  int N,A[100];
+  scanf("%d",&N);
+  for(int i=0;i<N;i++)
+  {
+    scanf("%d",&A[i]);
+  }
+  for(int i=N-1;i>=0;i--)
+  {
+    printf("%d ",A[i]);
+  }
+  return 0;
+}
+
+2nd approach - iterate into an array from both the sides from start and from end and keep swapping the elements by this your array wwill be reversed with O(n) Time Complexity and with O(1) Space Complexity
+#include<iostream>
+using namespace std;
+
+int main()
+{
+  int N,A[100];
+  scanf("%d",&N);
+  for(int i=0;i<N;i++)
+  {
+    scanf("%d",&A[i]);
+  }
+  int start=0,end=N-1;
+  while(start<end)
+  {
+    int temp = A[start];
+    A[start] = A[end];
+    A[end] = temp;
+    start++;
+    end--;
+  }
+  for(int k=0;k<N;k++)
+  {
+    printf("%d ",A[k]);
+  }
+  return 0;
+}
+3rd Approach - Do same as second approach but by recursing the reverse function Time and Space Complexity is same as 2nd approach.
+#include<iostream>
+using namespace std;
+
+void reversarray(int arr[100],int start, int end)
+{
+  if(start>=end)
+  return;
+  int temp = arr[start];
+  arr[start] = arr[end];
+  arr[end] = temp;
+  reversarray(arr,start+1,end-1);
+  
+}
+
+int main()
+{
+  int N,A[100];
+  scanf("%d",&N);
+  for(int i=0;i<N;i++)
+  {
+    scanf("%d",&A[i]);
+  }
+  reversarray(A, 0,N-1);
+  for(int k=0;k<N;k++)
+  {
+    printf("%d ",A[k]);
+  }
+  return 0;
+}
