@@ -1,1 +1,3 @@
-
+Method 1  - simply by sorting with O(nlogn) Time Complexity.
+Method 2 - Using min and max heap with O(n + klogn) Time Complexity.
+Method 3 - using Quick select with o(n) Time Complexity in average case but in wrst case it is O(n^2).
