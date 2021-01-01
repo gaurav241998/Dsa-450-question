@@ -1,1 +1,31 @@
+Method 1 - Iterate over the array and keep comparing the elements with their preciding one for minimum and maximum element.
+#include<iostream>
+using namespace std;
 
+int main()
+{
+  int N,A[100];
+  scanf("%d",&N);
+  for(int i=0;i<N;i++)
+  {
+    scanf("%d",&A[i]);
+  }
+  int Max = 0;
+  for(int i=0;i<N;i++)
+  {
+    if(A[i]>=Max)
+    {
+      Max = A[i];
+    }
+  }
+  int Min = Max;
+  for(int i=0;i<N;i++)
+  {
+    if(A[i]<=Min)
+    {
+      Min = A[i];
+    }
+  }
+  printf("%d %d",Max,Min);
+  return 0;
+}
