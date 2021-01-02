@@ -1,1 +1,59 @@
+Method 1  - use only searching search the elements of the first array in the second with Time Complexity O(N*M).
+Method 2 - use sorting and searching both sort the smaller array and then binary search for the elments of the first array in the second array because binary search will only work for the sorted array with Time Complexity O((M+N)logM, (M+N)logN)
+Method 3 - Use Hashing with Time Complexity of O(M+N).
+code for the method 3 - 
+#include<iostream>
+#include<unordered_map>
+using namespace std;
+
+int main()
+{
+  int T;
+  scanf("%d",&T);
+  while(T--)
+  {
+    int N,M,A[100001],B[100001];
+    scanf("%d%d",&N,&M);
+    for(int i=0;i<N;i++)
+    {
+      scanf("%d",&A[i]);
+    }
+    for(int i=0;i<M;i++)
+    {
+      scanf("%d",&B[i]);
+    }
+    int i=0,j=0,count=0;
+    while(i<N && j<M)
+    {
+      if(A[i] != B[j])
+      {
+         count = count +2;
+         i++;
+         j++;
+      }
+      else 
+      {
+        count = count + 1;
+        i++;
+        j++;
+      }
+    }
+    if(N>M)
+    {
+      count = count + (N-M);
+      printf("%d\n",count);
+    }
+    else if(N<M)
+    {
+      count = count + (M-N);
+      printf("%d\n",count);
+    }
+    else 
+    {
+      printf("%d\n",count);
+    }
+  }
+  return 0;
+}
+
 
