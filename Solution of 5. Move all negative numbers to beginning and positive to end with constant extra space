@@ -1,0 +1,45 @@
+Method 1 -  you can use the partition method of Quick sort.
+Method 2 - you can use the two pointer approach with two variables
+Code for Method 2 in my style - 
+#include<iostream>
+using namespace std;
+
+int main()
+{
+  int N,A[100];
+  scanf("%d",&N);
+  for(int i=0;i<N;i++)
+  {
+    scanf("%d",&A[i]);
+  }
+  int i=0,j=N-1;
+  while(i<j)
+  {
+    if(A[i]>0 && A[j]<0)
+    {
+      int temp = A[i];
+      A[i] = A[j];
+      A[j] = temp;
+      i++;
+      j--;
+    }
+    else if(A[i]<0 && A[j]<0)
+    {
+      i++;
+    }
+    else if(A[i]>0 && A[j]>0)
+    {
+      j--;
+    }
+    else if(A[i]<0 && A[j]>0)
+    {
+      i++;
+      j--;
+    }
+  }
+  for(int k=0;k<N;k++)
+  {
+    printf("%d ",A[k]);
+  }
+  return 0;
+}
