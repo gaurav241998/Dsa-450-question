@@ -1,1 +1,70 @@
+Method 1 - take an another array of same size and put the last element of first array into the first index of second array then copy all the elemnts of first array except the last element into the second Array. with the Time Complexity O(n) and Space Complexity O(n).
+#include<iostream>
+using namespace std;
+
+int main()
+{
+  int T;
+  scanf("%d",&T);
+  while(T--)
+  {
+    int N,A[1001],B[1001];
+    scanf("%d",&N);
+    for(int i=0;i<N;i++)
+    {
+      scanf("%d",&A[i]);
+    }
+    B[0] = A[N-1];
+    for(int i=0;i<N-1;i++)
+    {
+      B[i+1] = A[i]; 
+    }
+    for(int i=0;i<N;i++)
+    {
+      printf("%d ",B[i]);
+    }
+    printf("\n");
+  }
+  return 0;
+}
+
+
+Method 2 - reverse the whole array first then reverse the array from the second element to the last element. With Time Complexity O(n) and Space Complexity O(1).
+#include<iostream>
+using namespace std;
+
+void reversearray(int arr[1001], int start, int end)
+{
+    while(start<end)
+    {
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        start++;
+        end--;
+    }
+}
+
+int main()
+{
+  int T;
+  scanf("%d",&T);
+  while(T--)
+  {
+    int N,A[1001];
+    scanf("%d",&N);
+    for(int i=0;i<N;i++)
+    {
+      scanf("%d",&A[i]);
+    }
+    reversearray(A, 0, N-1);
+    reversearray(A, 1, N-1);
+    for(int i=0;i<N;i++)
+    {
+       printf("%d ",A[i]); 
+    }
+    printf("\n");
+  }
+  return 0;
+}
 
