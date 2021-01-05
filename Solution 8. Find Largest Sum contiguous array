@@ -1,1 +1,22 @@
-
+Method 1  - by simple brute force method
+Method 2 - The famous kadanes algorithm in my style with Time complexity O(n) and Space Complexity O(1).
+int maxSubarraySum(int arr[], int n){
+    
+   int max1=arr[0],max2=arr[0];
+   for(int i=1;i<n;i++)
+   {
+       if(max1+arr[i] > arr[i])
+       {
+           max1 = max1 + arr[i];
+       }
+       else 
+       {
+           max1 = arr[i];
+       }
+       if(max1 > max2)
+       {
+           max2 = max1;
+       }
+   }
+   return max2;
+}
