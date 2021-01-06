@@ -1,1 +1,18 @@
-
+Method 1 - First method is we will do it by hash map with Time Complexity O(n) and Space Complexity O(n).
+Code for 1st method - 
+int findDuplicate(vector<int>& nums) {
+        int numsize = nums.size();
+        unordered_map<int, int> umap;
+        for(int i=0;i<numsize;i++)
+        {
+            umap[nums[i]]++;
+            if(umap[nums[i]]>1)
+            {
+                return nums[i];
+            }
+        }
+        
+      return 0;  
+    }
+    
+Method 2 - 
