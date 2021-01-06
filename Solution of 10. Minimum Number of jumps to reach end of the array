@@ -1,1 +1,31 @@
+method 1 - it is the brute force approach with Time Complexity O(n^2) and Space complexity O(1);
+method 2 - in brute force what we are doing we are taking an another for finding the maximum reach but in this we have taken only one array for iterating the whole array and along which also updating the maximum reach. with Time Complexity O(n) and Space complexity O(1).
+int minJumps(int arr[], int n){
+    int maxR = arr[0];
+    int step = arr[0];
+    int jump = 1;
+    if(n == 1) return 0;
+    else if(arr[0] == 0) return -1;
+    else 
+    {
+        for(int i=1;i<n;i++)
+        {
+            if(i == n-1)
+            {
+                return jump;
+            }
+            maxR = max(maxR, i+arr[i]);
+            step--;
+            if(step == 0)
+            {
+                jump++;
+                if(i==maxR)
+                {
+                    return -1;
+                }
+                step = maxR - i;
+            }
+        }
+    }
+}
 
