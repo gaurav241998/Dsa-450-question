@@ -1,3 +1,15 @@
+Follow ups related to this question
+1. How can we prove that at least one duplicate number must exist in nums?
+ answer - because in this question it is given that we have to take N+1 elements and all the elements range are in between 1 to N so if we take N elements unique we have take the n+1 th element as a duplicate of the previous elements.
+
+2. Can you solve the problem without modifying the array nums?
+  answer - yes as we have described in the method 1st.
+
+3. Can you solve the problem using only constant, O(1) extra space?
+  answer - yes as we have described in the method 2nd.
+
+4. an you solve the problem with runtime complexity less than O(n2)?
+  answer - yes by the method 1st and with 2nd also both have Time Cmplexity O(n).
 Method 1 - First method is we will do it by hash map with Time Complexity O(n) and Space Complexity O(n).
 Code for 1st method - 
 int findDuplicate(vector<int>& nums) {
@@ -16,3 +28,4 @@ int findDuplicate(vector<int>& nums) {
     }
     
 Method 2 - 
+
