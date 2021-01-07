@@ -27,5 +27,22 @@ int findDuplicate(vector<int>& nums) {
       return 0;  
     }
     
-Method 2 - 
+Method 2 - In this method what we have done is that we will iterate in an array and then while iterating we will increase the elment with index equal to the iteration element so after that we will check that which element on divided with N will give 2 or more then this is the repeated element with time complexity O(n) and space complexity O(1).
+int findDuplicate(vector<int>& nums) {
+        int numsize = nums.size();
+        int divide;
+        for(int i=0;i<numsize;i++)
+        {
+            nums[nums[i]%numsize] += numsize;
+        }
+        for(int i=0;i<numsize;i++)
+        {
+            divide = nums[i]/numsize;
+            if(divide > 1)
+            {
+                return i;
+            }
+        }
+        return 0;
+    }
 
