@@ -1,1 +1,23 @@
-
+Method 1 - using this method what we are doing is that we are just comparing the element of first array to the another array then swap it and then sort the another array.
+oid merge(int arr1[], int arr2[], int n, int m) {
+	    int k;
+	    for(int i=0;i<n;i++)
+	    {
+	        if(arr1[i]>arr2[0])
+	        {
+	            k=0;
+	            swap(arr1[i],arr2[0]);
+	            for(int j=1;j<m;j++)
+	            {
+	                if(arr2[k]>arr2[j])
+	                {
+	                    swap(arr2[k],arr2[j]);
+	                    k++;
+	                }
+	            }
+	        }
+	    }
+	}
+  
+  Method 2 - 
+  
