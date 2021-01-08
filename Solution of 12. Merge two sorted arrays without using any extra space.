@@ -1,5 +1,5 @@
-Method 1 - using this method what we are doing is that we are just comparing the element of first array to the another array then swap it and then sort the another array.
-oid merge(int arr1[], int arr2[], int n, int m) {
+Method 1 - using this method what we are doing is that we are just comparing the element of first array to the another array then swap it and then sort the another array. with Time Complexity O(n*m) in the worst case and Space Complexity O(1).
+void merge(int arr1[], int arr2[], int n, int m) {
 	    int k;
 	    for(int i=0;i<n;i++)
 	    {
@@ -19,5 +19,13 @@ oid merge(int arr1[], int arr2[], int n, int m) {
 	    }
 	}
   
-  Method 2 - 
+  Method 2 - this method is same as method 1 but having time complexity O(N+M*(logM+N)).
+  oid merge(int arr1[], int arr2[], int n, int m) {
+	    int j = 0, i = n-1;
+while(j < m && i > -1 && arr2[j] < arr1[i])
+swap(arr2[j++],arr1[i--]);
+sort(arr1,arr1+n);
+sort(arr2,arr2+m);
+
+	}
   
