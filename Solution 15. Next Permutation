@@ -1,2 +1,37 @@
-Method 1 - First Method is the brute force approach with Time Complexity O(N^2) and Space Complexity O(N^2).
-Method 2 - 
+Method 1 - First Method is the brute force approach with Time Complexity O(N!*N) because there are N! orders and there lenghts are N and Space Complexity O(N^2).
+Method 2 - The intuation behind this method is that order is in increasing order from the back if you want to know more see this video - https://www.youtube.com/watch?v=LuLCLgMElus&t=105s
+with Time Complexity O(N) and Space Complexity O(1)
+Algorithm for the second approach is - 
+1. A[i] > a[i+1] ind1 = A[i];
+2. ind1 < ind2   ind2 = greater one;
+3. swap the ind1 and ind2;
+4. reverse the order from i+1 to end;
+
+code for the second approach is - 
+void nextPermutation(vector<int>& nums) {
+        int N = nums.size(),i,j;
+        if(N !=1)
+        {
+             for(i=N-2;i>=0;i--)
+        {
+          if(nums[i]<nums[i+1])
+          {
+              break;
+          }
+        }
+        if(i<0)
+        {
+            reverse(nums.begin(),nums.end());
+        }
+        else {
+            for(j=N-1;j>i;j--){
+              if(nums[j]>nums[i]){
+                 break;
+               }
+             }
+        }
+        swap(nums[i],nums[j]);
+        reverse(nums.begin()+i+1,nums.end());
+        }
+    }
+
