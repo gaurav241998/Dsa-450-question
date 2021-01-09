@@ -1,3 +1,27 @@
-Method 1 -
-Method 2 - 
+The questions you can ask the interviewer is that - 
+1. that the vector is sorted or not please tell me
+
+Method 1 - the brute force approach with Time Complexity O(N^2 + NlogN) and Space Complexity O(N).
+Method 2 - The optimized approach then brute force with Time Complexity O(NlogN + N) and Space complexity O(N).
+code for 2 nd approach is - 
+vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        vector<vector<int>> mergedIntervals;
+        sort(intervals.begin(),intervals.end());
+        vector<int> tempInterval = intervals[0];
+        
+        for(auto it : intervals)
+        {
+            if(it[0] <= tempInterval[1])
+            {
+                tempInterval[1] = max(it[1],tempInterval[1]);
+            }
+            else 
+            {
+                mergedIntervals.push_back(tempInterval);
+                tempInterval = it;
+            }
+        }
+        mergedIntervals.push_back(tempInterval);
+        return mergedIntervals;
+    }
 
