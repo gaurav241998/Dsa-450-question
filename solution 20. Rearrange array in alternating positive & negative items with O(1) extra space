@@ -1,1 +1,63 @@
+Method 1 - by brute force method by using hashing separating negative and positive elements in separate arrays then mix them alternatively with time complexity O(N) and space complexity O(N).
+Method 2 - by using the same concept as method 1 but doing this in same array either by using quick sort method or by two pointer approach with time complexity O(N) and space complexity O(1).
+code for the second method - 
+#include<iostream>
+using namespace std;
+void solve()
+{
+  int n;
+  cin >> n;
+  int arr[n];
+  for(int i=0;i<n;i++)
+  {
+    cin >> arr[i];
+  }
+  int p = -1;
+  for(int i=0;i<n;i++)
+  {
+    if(arr[i]<0)
+    {
+      p++;
+      swap(arr[p],arr[i]);
+    }
+  }
+  for(int i=0;i<n;i++)
+  {
+    cout << arr[i] << " ";
+  }
+  cout << "\n" << p << "\n";
+  int neg = 1;
+  int pos = p+1;
+  while(neg<n && pos<n)
+  {
+    if(arr[neg]<0 && arr[pos]>0)
+    {
+      swap(arr[neg],arr[pos]);
+      neg += 2;
+      pos++;
+    }
+    else 
+    {
+      break;
+    }
+  }
+  for(int i=0;i<n;i++)
+  {
+    cout << arr[i] << " ";
+  }
+}
+int main()
+{
+  solve();
+  return 0;
+}
 
+
+
+// {-5, 3, 4, 5, -6, -2, 8, 9, -1, -4}
+// {-2, 3, 4, -1}
+
+
+LEARNINGS - 
+1. how to arrange all the negative on the left and all the positives on right by two methods;
+2. how to use two pointer approach efficiently.
