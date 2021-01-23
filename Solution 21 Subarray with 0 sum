@@ -1,1 +1,26 @@
-
+Method 1 - by brute force method with time Complexity O(N^2) and space complexity O(1).
+Method 2- by using hashing or subarray sum in this method we have taken out the sum at each iteration and then store it in a variable then i will check three condition first is
+that on any point of time s is equal to 0 or not second is the s sum value repeats or not if it repeats so there is a case before which sum becomes 0 and last case is any number
+in array is zero or not.
+code for the second method - 
+bool f = false;
+   int s=0;
+   unordered_map<int,int> m;
+   for(int i=0;i<n;i++)
+   {
+       s = s+arr[i];
+       if(s==0 || m[s] || arr[i]==0)
+       {
+           f = true;
+           break;
+       }
+       else
+       {
+           m[s] = 1;
+       }
+   }
+   return f;
+   
+   LEARNINGS - 
+   1. Think like A boss.
+   2. think simple very simple i got new approach to get a subarray with given sum.
