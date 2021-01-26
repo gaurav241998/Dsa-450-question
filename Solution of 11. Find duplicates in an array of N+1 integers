@@ -45,4 +45,8 @@ int findDuplicate(vector<int>& nums) {
         }
         return 0;
     }
+    
+    
+  FOR MORE CLARIFICATION REFER THIS VIDEO - 
+  https://www.youtube.com/watch?v=kV37sZV9pgk&t=449s
 
