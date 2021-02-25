@@ -1,0 +1,22 @@
+method - by recursion 
+code - 
+struct node *reverse (struct node *head, int k)
+    { 
+        struct node *nex;
+        struct node *prev=NULL;
+        int c=0;
+        struct node *cur = head;
+        while(cur!=NULL and c<k)
+        {
+            nex = cur->next;
+            cur->next = prev;
+            prev = cur;
+            cur = nex;
+            c++;
+        }
+        if(nex!=NULL)
+        {
+            head->next = reverse(nex,k);
+        }
+        return prev;
+    }
