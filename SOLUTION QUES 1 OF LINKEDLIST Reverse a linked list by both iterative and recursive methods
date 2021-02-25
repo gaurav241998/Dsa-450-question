@@ -1,0 +1,39 @@
+1st method - iterative method
+code - 
+struct Node* reverseList(struct Node *head)
+    {
+        if(head == NULL)
+           return NULL;
+        
+        struct Node *prev = NULL;
+        struct Node *tmp = head;
+        struct Node *ahead = tmp->next;
+        
+        while(tmp!=NULL)
+        {
+            ahead = tmp->next;
+            tmp->next = prev;
+            prev = tmp;
+            tmp = ahead;
+        }
+        return prev;
+    }
+
+2nd method - recursive method
+code - 
+struct Node* reverseList(struct Node *head)
+    {
+        if (head == NULL || head->next == NULL)
+            return head;
+ 
+        /* reverse the rest list and put 
+          the first element at the end */
+        Node* rest = reverseList(head->next);
+        head->next->next = head;
+ 
+        /* tricky step -- see the diagram */
+        head->next = NULL;
+ 
+        /* fix the head pointer */
+        return rest;
+    }
