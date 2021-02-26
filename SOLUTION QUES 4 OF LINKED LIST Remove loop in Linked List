@@ -1,0 +1,36 @@
+1ST METHOD - BY HASHING WITH TIME AND SPACE COMPLEXITY BE O(N).
+CODE - 
+2ND METHOD - BY RABBIT TURTLE ALGORITHM WITH TIME COMPLEXITY O(N) AND SPACE COMPLEXITY O(1).
+CODE - 
+void removeLoop(Node* head)
+{
+  struct Node *low = head;
+  struct Node *high = head;
+  while(high!=NULL and high->next!=NULL)
+  {
+      low = low->next;
+      high = high->next->next;
+      if(low==high)
+      {
+          break;
+      }
+  }
+  if(low==head)
+  {
+      while(high->next!=low)
+      {
+          high = high->next;
+      }
+      high->next = NULL;
+  }
+  else if(high==low)
+  {
+      low = head;
+      while(high->next!=low->next)
+      {
+          low = low->next;
+          high = high->next;
+      }
+      high->next = NULL;
+  }
+}
