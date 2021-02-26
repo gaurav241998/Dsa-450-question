@@ -1,0 +1,22 @@
+1st method - By hashing with time complexity O(N) and with space complexity O(N).
+code - 
+bool detectLoop(Node* head)
+    {
+        if(head == NULL)
+           return 0;
+           
+        unordered_map<Node*,int> m;
+        while(head!=NULL)
+        {
+            if(!m[head])
+            {
+                m[head] = 1;
+                head = head->next;
+            }
+            else 
+            {
+                return 1;
+            }
+        }
+        return 0;
+    }
