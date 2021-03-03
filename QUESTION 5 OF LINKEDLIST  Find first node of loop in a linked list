@@ -1,0 +1,33 @@
+METHOD 1 - IT IS SAME AS THE METHOD WE HAVE USED IN DELETING THE LOOP
+CODE - 
+void firstnodeloop(Node* head)
+{
+if(head==NULL || head->next==NULL)
+{
+  return head;
+}
+ struct Node *slow = head, *fast = head;
+ while(fast!=NULL and fast->next!=NULL)
+ {
+   slow = slow->next;
+   fast = fast->next->next;
+   if(slow==fast)
+   {
+     break;
+   }
+ }
+ if(slow==head)
+ { 
+   cout << head;
+ }
+ else
+ {
+   slow = head;
+   while(slow->next!=fast->next)
+   {
+     slow = slow->next;
+     fast = fast->next;
+   }
+   cout << fast->next;
+ }
+}
