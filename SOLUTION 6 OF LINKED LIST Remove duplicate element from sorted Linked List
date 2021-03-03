@@ -1,0 +1,18 @@
+method 1 - if the data of the head node and next node is same then make the head next link to the next of next.
+code - 
+Node *removeDuplicates(Node *root)
+{
+    struct Node *tmp = root;
+  while(root->next!=NULL)
+  {
+      if(root->data == root->next->data)
+      {
+          root->next = root->next->next;
+      }
+      else 
+      {
+          root = root->next;
+      }
+   }  
+   return tmp;
+}
