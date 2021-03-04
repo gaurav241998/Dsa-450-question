@@ -1,0 +1,22 @@
+SOLUTION - 
+Node * removeDuplicates( Node *head) 
+    {
+      unordered_map<int,int> m;
+      int a = head->data;
+      struct Node *tmp = head;
+      m[a] = 1;
+      while(tmp->next != NULL)
+      {
+          a = tmp->next->data;
+          if(m[a])
+          {
+              tmp->next = tmp->next->next;
+          }
+          else 
+          {
+              m[a] = 1;
+              tmp = tmp->next;
+          }
+      }
+      return head;
+    }
