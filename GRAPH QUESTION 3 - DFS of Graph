@@ -1,0 +1,21 @@
+SOLUTION - 
+vector <int> v;
+    void solve(int src, vector<int> &vis, vector<int> g[])
+    {
+        vis[src] = 1;
+        v.push_back(src);
+        for(auto x:g[src])
+        {
+            if(!vis[x])
+            {
+                solve(x,vis,g);
+            }
+        }
+    }
+	vector<int>dfsOfGraph(int V, vector<int> adj[]){
+	    v.clear();
+	    vector <int> vis(V,0);
+	    solve(0,vis,adj);
+	    return v;
+	    
+	}
