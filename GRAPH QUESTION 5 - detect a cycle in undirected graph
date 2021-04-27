@@ -1,0 +1,26 @@
+bool dfs(int src,int par,vector<int> adj[],vector <bool> &vis)
+{
+   vis[src] = true;
+   for(auto x: adj[src])
+   {
+       if(!vis[x])
+       {
+           if(dfs(x,src,adj,vis))
+              return true;
+       }
+       else if(x!=par) return true;
+   }
+   return false;
+}
+	bool isCycle(int V, vector<int>adj[]){
+	    vector<bool> vis(V,false);
+	    for(int i=0;i<V;i++)
+	    {
+	        if(!vis[i])
+	        {
+	            bool f = dfs(i,-1,adj,vis);
+	            if(f) return true;
+	        }
+	    }
+	    return false;
+	}
