@@ -1,0 +1,35 @@
+bool isCyclic(int V, vector<int> adj[]) {
+	   	queue<int > q;
+	   	vector<int> in(V,0);
+	   	for(int i=0;i<V;i++)
+	   	{
+	   	    for(auto x:adj[i])
+	   	    {
+	   	        in[x]++;
+	   	    }
+	   	}
+	   	for(int i=0;i<V;i++)
+	   	{
+	   	    if(in[i] == 0)
+	   	    {
+	   	        q.push(i);
+	   	    }
+	   	}
+	   	int c = q.size();
+	   	while(!q.empty())
+	   	{
+	   	    int td = q.front();
+	   	    q.pop();
+	   	    for(auto x:adj[td])
+	   	    {
+	   	        in[x]--;
+	   	        if(in[x] == 0)
+	   	        {
+	   	            q.push(x);
+	   	            c++;
+	   	        }
+	   	    }
+	   	}
+	   	if(c == V) return false;
+	   	else return true;
+	}
